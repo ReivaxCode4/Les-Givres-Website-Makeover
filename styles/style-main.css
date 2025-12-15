@@ -1,0 +1,674 @@
+@charset "utf-8";
+
+/* Definir les variables du theme */
+:root {
+    --couleur-texte: #000;
+    --couleur-theme-fond: #FFF8D0;
+    --couleur-theme-a: #8CC9FF;
+    --couleur-theme-b: #F0B2FF;
+    --couleur-theme-c: #BF9CFF;
+    --couleur-btn: #fff;
+}
+
+html {
+
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/* .element {
+  animation: hue-rotate-animation 3s infinite ease;
+} */
+
+/* Animation de l'image sur l'accueil */
+@keyframes animation-accueil {
+  0% {
+    filter: 0;
+  }
+
+  50% {
+    filter: hue-rotate(-1deg) opacity(1) saturate(1.2) contrast(1) blur(1px);
+  }
+
+  100% {
+    filter: 0;
+  }
+}
+
+/* Animation du logo du footer */
+@keyframes animation-logo {
+    0% {
+        rotate: -20deg;
+    }
+
+    60% {
+        rotate: 20deg;
+    }
+
+    100% {
+        rotate: -20deg;
+    }
+}
+
+/* ================ STYLES MOBILE FIRST ==================== */
+.tablette, .desktop {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    background-color: var(--couleur-theme-fond);
+    font-family: "Caveat Brush", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+}
+
+header.entete {
+    top: 0;
+    position: sticky;
+    z-index: 2;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.fond-entete {
+    flex: 100vw;
+}
+
+.masque-entete {
+    width: 100%;
+}
+
+.logo-header {
+    position: absolute;
+    top: 1vh;
+    left: 4vw;
+    width: 12vw;
+}
+
+.burger-icon {
+    position: absolute;
+    top: 2vh;
+    right: 5vw;
+    height: 8vw;
+    cursor: pointer;
+}
+
+/* Checkbox et menus invisibles */
+#chk_burger, .surplus-mbl, .menu-plus, #chk_types_prd {
+    display: none;
+}
+
+#burger {
+    z-index: 100;
+}
+
+/* La premiere image */
+#burger img:nth-of-type(1), #chk_burger:checked ~ #burger img:nth-of-type(2) {
+    display: flex;
+}
+
+/* La deuxieme image */
+#burger img:nth-of-type(2), #chk_burger:checked ~ #burger img:nth-of-type(1) {
+    display: none;
+}
+
+.surplus-mbl {
+    flex-flow: column;
+    align-items: center;
+    padding-top: 10vh;
+    position: absolute;
+    overflow-y: hidden;
+    background-color: rgba(0, 0, 0, 0.8);
+    left: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+.surplus-mbl label {
+    min-width: 100%;
+}
+
+.surplus-mbl p {
+    color: var(--couleur-btn);
+    text-align: center;
+    margin: 0;
+    cursor: pointer;
+}
+
+.surplus-mbl p.taille1 {
+    font-size: 3rem;
+    padding: 2rem 0;
+    width: 100%;
+}
+
+.menu-plus {
+    display: none;
+    flex-flow: wrap;
+    justify-content: center;
+}
+
+.menu-plus p {
+    flex: 100vw;
+    font-size: 1.5rem;
+    padding: 1rem 0;
+    width: 100%;
+    margin: 0;
+}
+
+#chk_burger:checked ~ .surplus-mbl {
+    display: flex;
+
+}
+
+#chk_types_prd:checked ~ .menu-plus {
+    display: flex;
+}
+
+#chk_types_prd:checked ~ #burger2 p {
+    color: var(--couleur-theme-c);
+}
+
+#burger2 p {
+    transition: color 500ms;
+}
+
+main {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+main > * {
+    margin-top: 5vh;
+    min-width: 100vw;
+}
+
+div.presentation {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, auto);
+    background-color: var(--couleur-theme-b);
+}
+
+.presentation img {
+    width: 150vw;
+    translate: -20%;
+    animation: animation-accueil 6s infinite ease;
+}
+
+.presentation h2, .presentation p {
+    font-weight: 400;
+    text-align: center;
+    font-size: 2rem;
+    max-width: 100vw;
+}
+h2.slogan {
+    font-style: italic;
+    font-size: 1.8rem;
+}
+
+p.titre {
+    font-size: 3rem;
+}
+
+div.coeur {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    background-color: var(--couleur-theme-c);
+}
+
+.coeur > div {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 80vw;
+}
+
+.prd-promo img {
+    width: 100%;
+}
+
+.coeur h2, .coeur p{
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 5rem;
+}
+
+.coeur h2 {
+    margin-top: 3rem;
+}
+
+/* Styles de l'affichage des categories de produits */
+div.affiche-prod {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding: 0 10vw;
+    background-color: var(--couleur-theme-b);
+    margin-bottom: 5vh;
+}
+
+.type-produit {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 3rem;
+    margin-bottom: 5rem;
+}
+
+.case-menu {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    background-color: var(--couleur-theme-c);
+    padding: 2vh 4vw 0rem 4vw;
+    box-shadow: 0 4px 3.8px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 8%;
+    width: 65vw;
+}
+
+.prd-promo img:hover {
+    filter: blur(4px);
+    transition: filter 1s;
+}
+
+.prd-promo img:hover {
+    filter: hue-rotate(-1deg) opacity(1) saturate(1.6) contrast(1) blur(0);
+}
+
+.case-menu p {
+    background-color: var(--couleur-btn);
+    border-radius: 1rem;
+    box-shadow: 0 4px 3.8px 3px rgba(0, 0, 0, 0.25);
+    padding: 0.5rem;
+}
+
+.affiche-prod a {
+    text-align: center;
+}
+
+.affiche-prod h2, .affiche-prod p {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.type-produit .icones-prds {
+    width: 100%;
+    filter: drop-shadow(5px 0.5rem 0.5rem rgba(0, 0, 0, 0.5));
+    order: 0;
+    transition: filter 4s;
+
+}
+
+.icones-prds:hover {
+    filter: hue-rotate(-1deg) opacity(1) saturate(1.2) contrast(1) blur(0);
+}
+
+/* Styles du footer */
+footer.pied {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: var(--couleur-theme-a);
+    padding-top: 3rem;
+}
+
+.pied .social {
+    display: flex;
+    flex-flow: nowrap;
+    justify-content: center;
+    gap: 3vw;
+}
+
+.social img {
+    cursor: pointer;
+}
+
+.logo-footer {
+    width: 60vw;
+    animation: animation-logo 8s infinite ease;
+}
+
+.pied a {
+    order: 1;
+}
+
+.pied .telephone {
+    order: 2;
+}
+
+.pied p {
+    font-size: 1.5rem;
+}
+
+/* ================ STYLES TABLETTE ==================== */
+@media(min-width:576px) {
+    .mobile {
+        display: none;
+    }
+
+    .tablette {
+        display: flex;
+    }
+
+    .surplus-mbl {
+        display: none;
+    }
+
+    /* Styles d'affichage de l'ecran de presentation */
+    div.presentation {
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        max-width: 80vw;
+        background-color: var(--couleur-theme-fond);
+    }
+
+    div.presentation > div {
+        margin: auto;
+        border-radius: 1.5rem;
+    }
+
+    .presentation h2{
+        grid-row: 1 / 2;
+        grid-column: 2 / 4;
+        z-index: 1;
+        background-color: var(--couleur-theme-b);
+        height: 3rem;
+        font-size: 1.5rem;
+        text-align: center;
+        text-wrap: nowrap;
+        padding-top: 1rem;
+        border-radius: 1.5rem;
+    }
+
+    .presentation img {
+        grid-row: 1 / 3;
+        grid-column: 2 / 5;
+        translate: 0;
+        height: 40vw;
+        width: auto;
+        margin: auto;
+        
+    }
+
+    .presentation .msg {
+        grid-row: 2 / 3;
+        grid-column: 3 / 5;
+        z-index: 1;
+        background-color: var(--couleur-theme-b);
+        padding: 0.5rem 0 0 0.5rem;
+        max-height: auto;
+        max-width: 25rem;
+        border-radius: 1.5rem;
+    }
+
+    .presentation .titre{
+        grid-row: 3 / 4;
+        grid-column: 2 / 5;
+        margin-top: auto;
+        padding: 0.5rem 10vw;
+        z-index: 0;
+        background-color: var(--couleur-theme-b);
+        border-radius: 1.5rem;
+    }
+
+    /* Styles affichage coups de coeur */
+    div.coeur {
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+
+    .coeur h2 {
+        width: 100vw;
+        font-size: 3rem;
+    }
+
+    .coeur p {
+        font-size: 2rem;
+    }
+
+    .coeur > div {
+        width: 40vw;
+    }
+
+    .prd-promo img {
+        width: 35vw;
+    }
+
+    /* Styles de l'affichage des categories de produits */
+    .type-produit {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 2rem;
+        margin-bottom: 5rem;
+    }
+
+    .case-menu {
+        width: 30vw;
+    }
+
+    .case-menu p {
+        font-size: 1.5rem;
+    }
+
+    /* Styles du footer */
+    footer.pied {
+        flex-flow: wrap-reverse;
+        justify-content: flex-start;
+        align-content: flex-start;
+        padding-bottom: 2vh;
+    }
+
+    .pied > * {
+        flex: 1 25vh;
+        text-align: center;
+    }
+
+    .pied a {
+        order: -2;
+        margin: 2rem;
+    }
+
+    .logo-footer {
+        width: 30vw;
+    }
+} /* fin de tablette */
+
+/* ==================== STYLES GRANDS ECRANS ======================== */
+@media(min-width:992px) {
+    .tablette {
+        display: none;
+    }
+
+    .desktop {
+        display: flex;
+    }
+
+    .logo-header {
+        width: 8vw;
+        top: 2vh;
+        left: 2vw;
+    }
+
+    #burger {
+        display: none;
+    }
+
+    .desk-menu {
+        position: absolute;
+        top: 2vw;
+        right: 4vw;
+    }
+
+    .desk-menu a {
+        font-size: 1.5rem;
+        transition: scale 0.5s;
+        padding: 1rem 4vw;
+    }
+
+    .desk-menu a:hover {
+        scale: 150%;
+    }
+
+    #chk_burger:checked ~ .surplus-mbl, .promo-mb {
+        display: none;
+    }
+
+    /* Styles d'affichage de l'ecran de presentation */
+    div.presentation {
+        grid-template-columns: repeat(10, auto);
+        grid-template-rows: repeat(3, auto);
+    }
+
+    .presentation h2 {
+        grid-row: 3 / 4;
+        grid-column: 3 / 6;
+        text-wrap: nowrap;
+    }
+
+    .presentation img {
+        grid-row: 1 / 4;
+        grid-column: 6 / span 5;
+        max-width: 40vw;
+        height: auto;
+    }
+
+    .presentation .msg {
+        grid-row: 1 / 2;
+        grid-column: 2 / 6;
+        text-wrap: nowrap;
+        margin: auto;
+        padding-top: 4vw;
+        font-size: 1.5rem;
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    .presentation .titre{
+        grid-row: 1 / 3;
+        grid-column: 2 / 6;
+        padding: 8vw 1rem 1rem 1rem;
+
+    }
+
+    /* Styles de l'affichage des coups de coeur */
+    div.coeur {
+        flex-flow: column nowrap;
+        gap: 2vw;
+        padding-bottom: 4vw;
+    }
+
+    div.coeur h2 {
+        margin: 0;
+        margin-top: 2vw;
+    }
+
+    .coeur > .prd-promo {
+        flex-flow: row;
+        align-items: center;
+        min-width: 90vw;
+    }
+
+    .prd-promo:nth-of-type(2) {
+        flex-flow: row-reverse;
+    }
+
+    .prd-promo img {
+        min-width: 60vw;
+    }
+
+    .prd-promo p {
+        text-align: center;
+        flex: auto;
+    }
+
+    /* Styles de l'affichage des categories de produits */
+    .type-produit {
+        grid-template-columns: repeat(4, 25vw);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    .case-menu {
+        width: 18vw;
+        padding: 2vw 2vh 2vw 4vh;
+    }
+
+    .aff-crm {
+        grid-row: 1 / 2;
+        grid-column: 1 / 3;
+        translate: 6vw;
+        rotate: -7deg;
+    }
+
+    .aff-srb {
+        grid-row: 2 / 3;
+        grid-column: 2 / 3;
+        translate: -2vw 4vh;
+        rotate: 2deg;
+    }
+
+    .aff-veg {
+        grid-row: 1 / 2;
+        grid-column: 3 / 4;
+        translate: -7vw;
+        rotate: -1deg;
+    }
+
+    .aff-gt {
+        grid-row: 2 / 3;
+        grid-column: 4 / 5;
+        translate: -10vw;
+        rotate: 5deg;
+    }
+
+    /* Styles du footer Grand Ecran */
+    footer.pied {
+        flex-flow: column wrap;
+        justify-content: flex-start;
+        align-content: flex-start;
+        padding-bottom: 2vh;
+        max-height: 22rem;
+    }
+
+    .pied > * {
+        flex: 0;
+    }
+
+    .pied a {
+        flex-basis: 80%;
+    }
+
+    .pied .droits {
+        order: -1;
+        flex-basis: 20%;
+    }
+
+    .pied .social  {
+        gap: 1rem;
+    }
+
+    .telephone {
+        align-self: flex-start;
+    }
+
+    .logo-footer {
+        width: 13rem;
+    }
+} /* fin de grands écrans*/
