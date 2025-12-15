@@ -1,5 +1,5 @@
 # Les Givrés Website Makeover
-### Link to the website : https://reivaxcode4.github.io/Graduation-Album-Website/
+### Link to the website : https://reivaxcode4.github.io/Les-Givres-Website-Makeover/
 ### After having redesigned the Les Givrés website, my task was to integrate the new home page for mobile, tablets and desktop viewports.
 ### Les Givrés is an artisan ice cream shop in Montreal
 ### Code by Xavier Rémy
